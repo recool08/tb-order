@@ -107,9 +107,15 @@
 		</dependency>
 		<!-- Dubbo end -->
 		
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<!-- 配置插件 -->
+		<!-- 
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -123,6 +129,32 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		 -->
+		
+		<plugins>
+			
+			<!-- SpringBoot 打包插件 -->
+			<plugin>
+	        	<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--版本-->
+				<version>1.4.2.RELEASE</version>	<!-- 只能用“1.4.2.RELEASE”这个版本 -->
+				<configuration>
+			        <mainClass>com.taotao.order.Main</mainClass>
+			        <includeSystemScope>true</includeSystemScope>
+			        <!-- <layout>jar</layout> -->
+				</configuration>
+				<executions>
+			        <execution>
+			            <goals>
+			                <goal>repackage</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
+			
+		</plugins>
+		
 		
 	</build>
 
